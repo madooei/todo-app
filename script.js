@@ -86,21 +86,32 @@ function handleTodoClick(event) {
     }
 }
 
-// BUG: Handle filter navigation - this function is broken!
+// Handle filter navigation
 function handleFilterClick(event) {
     if (event.target.classList.contains("filter-link")) {
         event.preventDefault();
         
-        // BUG: This code doesn't actually update the filter properly
+        // Update the currentFilter variable
         const href = event.target.getAttribute("href");
-        console.log("Clicked filter:", href); // This will show in console but won't work
         
-        // BUG: The active class management is broken
-        // It should remove active class from all links and add to clicked one
-        // But this code doesn't do that properly
+        if (href === "#/") {
+            currentFilter = "all";
+        }
+        if (href === "#/active") {
+            currentFilter = "active";
+        }
+        if (href === "#/completed") {
+            currentFilter = "completed";
+        }
         
-        // BUG: The currentFilter variable is never actually updated
-        // So the renderTodos() call below won't show filtered results
+        // Remove active class from all filter links
+        const allLinks = document.querySelectorAll(".filter-link");
+        allLinks[0].classList.remove("active");
+        allLinks[1].classList.remove("active");
+        allLinks[2].classList.remove("active");
+        
+        // Add active class to clicked element
+        event.target.classList.add("active");
         
         renderTodos();
     }
