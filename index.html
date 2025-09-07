@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">~ todos ~</h1>
+        </header>
+
+        <!-- Main Todo Container -->
+        <main class="todo-container">
+            <!-- Input for new todos -->
+            <input 
+                id="new-todo" 
+                class="new-todo-input"
+                placeholder="What needs to be done?" 
+                autofocus
+            >
+
+            <!-- Navigation filters -->
+            <nav id="todo-nav" class="filters">
+                <a href="#/" class="filter-link active">All</a>
+                <a href="#/active" class="filter-link">Active</a>
+                <a href="#/completed" class="filter-link">Completed</a>
+            </nav>
+
+            <!-- Todo list -->
+            <section id="todo-list" class="todo-list">
+                <!-- Sample todos for initial display -->
+                <div class="todo-item">
+                    <div class="todo-text" id="todo-text-1">Buy milk</div>
+                    <input class="todo-edit hidden" value="Buy milk">
+                </div>
+                <div class="todo-item">
+                    <div class="todo-text" id="todo-text-2">Buy bread</div>
+                    <input class="todo-edit hidden" value="Buy bread">
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer with instructions -->
+        <footer class="footer">
+            <div>Click to complete a todo</div>
+            <div>Double-click to edit a todo</div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
