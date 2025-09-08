@@ -131,6 +131,19 @@ body {
     display: none;
 }
 
+/* Todo Actions */
+.todo-actions {
+    color: #777;
+    padding: 10px 15px;
+    height: 20px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Footer */
 .footer {
     margin-top: 65px;
