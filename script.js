@@ -96,19 +96,15 @@ function handleFilterClick(event) {
         
         if (href === "#/") {
             currentFilter = "all";
-        }
-        if (href === "#/active") {
+        } else if (href === "#/active") {
             currentFilter = "active";
-        }
-        if (href === "#/completed") {
+        } else if (href === "#/completed") {
             currentFilter = "completed";
         }
         
         // Remove active class from all filter links
         const allLinks = document.querySelectorAll(".filter-link");
-        allLinks[0].classList.remove("active");
-        allLinks[1].classList.remove("active");
-        allLinks[2].classList.remove("active");
+        allLinks.forEach(link => link.classList.remove("active"));
         
         // Add active class to clicked element
         event.target.classList.add("active");
