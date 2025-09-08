@@ -12,6 +12,7 @@ const todoListElement = document.getElementById("todo-list");
 const newTodoInput = document.getElementById("new-todo");
 const todoNav = document.getElementById("todo-nav");
 const todoCount = document.getElementById("todo-count");
+const clearCompletedButton = document.getElementById("clear-completed");
 
 // Render todos based on current filter
 function renderTodos() {
@@ -125,10 +126,22 @@ function handleFilterClick(event) {
     }
 }
 
+// Handle clearing completed todos
+function handleClearCompleted() {
+    // Remove all completed todos from the array
+    for (let i = todos.length - 1; i >= 0; i--) {
+        if (todos[i].completed) {
+            todos.splice(i, 1);
+        }
+    }
+    renderTodos();
+}
+
 // Event listeners
 newTodoInput.addEventListener("keydown", handleNewTodo);
 todoListElement.addEventListener("click", handleTodoClick);
 todoNav.addEventListener("click", handleFilterClick);
+clearCompletedButton.addEventListener("click", handleClearCompleted);
 
 // Initial render
 renderTodos();

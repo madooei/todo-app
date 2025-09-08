@@ -140,8 +140,24 @@ body {
     border-top: 1px solid #e6e6e6;
     font-size: 14px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+
+.todo-actions button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 14px;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.todo-actions button:hover {
+    text-decoration: none;
 }
 
 /* Footer */
