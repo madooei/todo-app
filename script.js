@@ -15,6 +15,7 @@ const todoCount = document.getElementById("todo-count");
 
 // Render todos based on current filter
 function renderTodos() {
+    // Clear the todo list container
     todoListElement.innerHTML = "";
     
     // Filter todos based on current filter
@@ -97,21 +98,28 @@ function handleTodoClick(event) {
     }
 }
 
-// BUG: Handle filter navigation - this function is broken!
+// Handle filter navigation
 function handleFilterClick(event) {
     if (event.target.classList.contains("filter-link")) {
         event.preventDefault();
         
-        // BUG: This code doesn't actually update the filter properly
+        // Update the currentFilter variable
         const href = event.target.getAttribute("href");
-        console.log("Clicked filter:", href); // This will show in console but won't work
         
-        // BUG: The active class management is broken
-        // It should remove active class from all links and add to clicked one
-        // But this code doesn't do that properly
+        if (href === "#/") {
+            currentFilter = "all";
+        } else if (href === "#/active") {
+            currentFilter = "active";
+        } else if (href === "#/completed") {
+            currentFilter = "completed";
+        }
         
-        // BUG: The currentFilter variable is never actually updated
-        // So the renderTodos() call below won't show filtered results
+        // Remove active class from all filter links
+        const allLinks = document.querySelectorAll(".filter-link");
+        allLinks.forEach(link => link.classList.remove("active"));
+        
+        // Add active class to clicked element
+        event.target.classList.add("active");
         
         renderTodos();
     }
