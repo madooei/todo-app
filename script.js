@@ -14,6 +14,7 @@ const todoNav = document.getElementById("todo-nav");
 
 // Render todos based on current filter
 function renderTodos() {
+    // Clear the todo list container
     todoListElement.innerHTML = "";
     
     // Filter todos based on current filter
@@ -52,6 +53,7 @@ function renderTodos() {
         todoItem.appendChild(todoEdit);
         todoListElement.appendChild(todoItem);
     }
+    // Rendering complete
 }
 
 // Handle adding new todo
