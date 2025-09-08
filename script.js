@@ -11,6 +11,7 @@ let currentFilter = "all";
 const todoListElement = document.getElementById("todo-list");
 const newTodoInput = document.getElementById("new-todo");
 const todoNav = document.getElementById("todo-nav");
+const todoCount = document.getElementById("todo-count");
 
 // Render todos based on current filter
 function renderTodos() {
@@ -52,6 +53,16 @@ function renderTodos() {
         todoItem.appendChild(todoEdit);
         todoListElement.appendChild(todoItem);
     }
+    
+    // Update todo counter
+    updateTodoCount();
+}
+
+// Update the todo count display
+function updateTodoCount() {
+    const activeTodos = todos.filter(todo => !todo.completed);
+    const count = activeTodos.length;
+    todoCount.textContent = `${count} item${count !== 1 ? 's' : ''} left`;
 }
 
 // Handle adding new todo
